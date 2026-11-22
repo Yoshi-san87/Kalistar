@@ -6,20 +6,18 @@ Ces numeros sont independants de la version du jeu.
 Lire [la direction artistique et ses references](DIRECTION_ARTISTIQUE.md)
 avant les prochaines retouches : trait, parchemin, villes, biomes et cotes.
 
-Publication active : [map 1.39](layers-1.39/kalistar-map-1.39-preview.png),
-livraison jeu 4.6.74. Vulkar occupe de hauts plateaux cendreux aux falaises
-abruptes, avec un volcan actif, de la lave, un grand lac noir et des ilots
-volcaniques a l'ouest. Huit villes restent selectionnables et independantes.
-Le cratere de Durane, le barrage nord, Cryptown et Thalassea sont preserves.
-Terrain, atmosphere et emblemes restent independants dans le PSD.
-Sources, prompts et export runtime : [layers-1.39](layers-1.39/PUBLICATION.md).
+Publication active : [map 1.40](layers-1.40/kalistar-map-1.40-preview.png),
+livraison jeu 4.7.36. L'archipel a l'est de Durane comporte des iles redessinees
+et de petits ponts, avec un acces au continent au nord uniquement. Le plateau
+de Vulkar, le cratere de Durane, le barrage, les forets et les huit villes sont
+preserves. Terrain, atmosphere et emblemes restent independants dans le PSD.
+Sources, validation et export runtime : [layers-1.40](layers-1.40/PUBLICATION.md).
 
 Le chemin runtime courant est defini une seule fois par `KalistarSite.atlas`
-dans `../site/site-config.js`. La vue Map et le fond Collection (y compris
-ses miniatures de pages) utilisent ce meme asset. A chaque nouvelle carte
-approuvee, mettre a jour ce chemin avec `versions.json` et le registre media ;
-le test de publication refuse une divergence. Le flou Collection reste un
-effet CSS separe : ne pas flouter ni dupliquer l'image source.
+dans `../site/site-config.js`. A chaque nouvelle carte approuvee, mettre a jour
+ce chemin avec `versions.json` et le registre media ; le test de publication
+refuse une divergence. Depuis l'Album 4.7.35, Collection utilise ses propres
+textures : une publication Map ne change ni son fond ni sa presentation.
 
 | Version | Fichier | Contenu |
 | --- | --- | --- |

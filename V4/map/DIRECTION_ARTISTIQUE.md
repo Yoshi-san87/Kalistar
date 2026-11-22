@@ -60,6 +60,13 @@ et hachures raccordees. En ajoutant de la terre, effacer les anciens traits
 marins ; en ajoutant de l'eau, effacer les anciens arbres et reliefs terrestres.
 Le nouveau terrain doit repondre aux formes environnantes.
 
+Archipel relie (22 novembre 2026, map 1.40) : les petites iles a l'est de
+Durane gardent des cotes organiques, un relief grave et peu de vegetation.
+De fins ponts de pierre relient l'arc principal et sa branche occidentale.
+Le seul acces continental est au nord ; conserver la mer ouverte au sud,
+la foret de WoodLand et les lignes de navigation. Source approuvee et masque
+editable : `layers-1.40/`. Ne pas transformer ces passages en routes massives.
+
 Cratere : sillon oblique se terminant par un bassin fracture, cicatrice
 ancienne cartographiee avec les memes traits que le relief.
 

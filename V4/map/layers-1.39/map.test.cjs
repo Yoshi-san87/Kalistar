@@ -53,5 +53,6 @@ test('published 1.39 terrain is lossless and every city asset is unchanged',asyn
   assert.deepEqual(await raw(path.join(root,proof.assets[0].file)),await raw(path.join(root,proof.terrainSource)));
   for(const entry of proof.assets)assert.equal(sha(path.join(root,entry.file)),entry.sha256);
   assert.deepEqual(proof.assets.slice(1),json(path.join(dir,'../layers-1.36/published-media.json')).assets.slice(1));
-  assert.equal(json(path.join(root,'V4/map/versions.json')).latestVersion,'1.39');
+  const historical=json(path.join(root,'V4/map/versions.json')).versions.find(version=>version.version==='1.39');
+  assert.equal(historical.status,'approved');assert.equal(historical.publishedAsset,'../site/assets/ui/kalistar-atlas-1.39.webp');
 });

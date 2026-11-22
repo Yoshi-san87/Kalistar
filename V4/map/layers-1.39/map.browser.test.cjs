@@ -4,8 +4,10 @@ const {createRequire}=require('node:module');
 const modules=process.env.KALISTAR_NODE_MODULES||'C:/Users/guill/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 const {chromium}=createRequire(path.join(modules,'_map_test.cjs'))('playwright');
 const dir=__dirname,root=path.resolve(dir,'../../..');
-const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(root,'work/qa/map-1.39');
-const proof=JSON.parse(fs.readFileSync(path.join(dir,'published-media.json'),'utf8'));
+const registry=JSON.parse(fs.readFileSync(path.join(root,'V4/map/versions.json'),'utf8'));
+const current=registry.versions.find(entry=>entry.version===registry.latestVersion);
+const output=process.env.KALISTAR_VERIFICATION_DIR||path.join(root,'work/qa/map-'+current.version);
+const proof=JSON.parse(fs.readFileSync(path.resolve(root,'V4/map',current.publishedMedia),'utf8'));
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2'};
 async function main(){
   fs.mkdirSync(output,{recursive:true});let server,browser;
@@ -28,12 +30,14 @@ async function main(){
     browser=await chromium.launch({channel:'chrome',headless:true});
     for(const viewport of [{width:1440,height:1000},{width:412,height:1007},{width:390,height:844}]){
       const context=await browser.newContext({viewport,reducedMotion:'reduce',isMobile:viewport.width<700,hasTouch:viewport.width<700});
+      await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,...args){return open.call(this,name+'-map-publication-qa-only',...args);};});
       const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
+      page.setDefaultTimeout(90000);
       page.on('response',response=>{if(response.status()>=400)failures.push(response.status()+' '+response.url());});
-      await page.goto(base+'#map');await page.waitForFunction(()=>window.KALISTAR_READY&&document.body.classList.contains('map-view'));
+      await page.goto(base+'#map');await enter(page);await page.waitForFunction(()=>window.KALISTAR_READY&&document.body.classList.contains('map-view'));
       await page.waitForFunction(()=>[...document.querySelectorAll('.map-atlas,.map-landmark img,.map-cities img')].every(img=>img.complete&&img.naturalWidth>0));
       assert.equal(await page.locator('[data-map-city]').count(),8);assert.equal(await page.locator('.map-landmark').count(),8);
-      assert((await page.locator('.map-atlas').getAttribute('src')).endsWith('kalistar-atlas-1.39.webp'));
+      assert((await page.locator('.map-atlas').getAttribute('src')).endsWith('kalistar-atlas-'+current.version+'.webp'));
       for(const asset of proof.assets){
         const response=await page.request.get(new URL(asset.file.replace(/^V4\/site\//,''),base).href);assert.equal(response.status(),200);
         assert.equal(crypto.createHash('sha256').update(await response.body()).digest('hex'),asset.sha256,asset.file);
@@ -62,13 +66,17 @@ async function main(){
         assert.equal(await page.locator('.map-city-marker').isVisible(),false);
         await page.locator('[data-map-action="fit"]').click();assert.equal(await page.locator('[data-map-action="out"]').isDisabled(),true);
       }
-      await page.reload();await page.waitForFunction(()=>window.KALISTAR_READY&&document.body.classList.contains('map-view'));
-      assert((await page.locator('.map-atlas').getAttribute('src')).endsWith('kalistar-atlas-1.39.webp'));
+      await page.reload();await enter(page);await page.waitForFunction(()=>window.KALISTAR_READY&&document.body.classList.contains('map-view'));
+      assert((await page.locator('.map-atlas').getAttribute('src')).endsWith('kalistar-atlas-'+current.version+'.webp'));
       results.push({viewport,cities:8,assetsVerified:proof.assets.length,selections,bottomMap:viewport.width<700,reload:true});
       await context.close();
     }
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
-    const report={base,results,errors,failures};fs.writeFileSync(path.join(output,'results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+    const report={version:current.version,base,results,errors,failures};fs.writeFileSync(path.join(output,'results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
   }finally{await browser?.close();if(server)await new Promise(resolve=>server.close(resolve));}
+}
+async function enter(page){
+  await page.waitForFunction(()=>window.KALISTAR_READY||document.querySelector('[data-startup-enter]:not([hidden]):not([disabled])'));
+  if(!await page.evaluate(()=>!!window.KALISTAR_READY))await page.locator('[data-startup-enter]').click();
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

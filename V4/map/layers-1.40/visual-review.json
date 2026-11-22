@@ -1,0 +1,18 @@
+{
+  "version": "1.40",
+  "date": "2026-11-22",
+  "status": "awaiting-author-review",
+  "runtimePublished": false,
+  "inspection": "Manual visual inspection of the complete map, integrated island detail and the original map 1.0 style reference.",
+  "reviewedImages": ["kalistar-map-1.40-preview.png", "islands-detail.png"],
+  "observations": {
+    "bridges": "Narrow arched spans connect the main island arc and the western branch, with visible landings on both shores.",
+    "mainlandAccess": "Northern landing only; open water remains between the southern islands and the WoodLand coast.",
+    "terrain": "Varied rocky engraved islands with sparse muted vegetation; existing mainland and forest are retained outside the local mask.",
+    "navigation": "Main rhumb hub is pixel-identical; open-water strokes appear visually aligned around the local edit. Ink inside the generated island masks is not claimed to be pixel-identical.",
+    "integration": "No rectangular patch boundary observed in the complete atlas or integrated detail.",
+    "cities": "All eight existing emblems and labels retain their original silhouettes, spelling and independent layers."
+  },
+  "pixelAndLayerProof": "verification.json",
+  "nativePhotoshopTested": false
+}

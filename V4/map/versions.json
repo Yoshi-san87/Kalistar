@@ -1,5 +1,5 @@
 {
-  "latestVersion": "1.39",
+  "latestVersion": "1.40",
   "artDirection": "DIRECTION_ARTISTIQUE.md",
   "versions": [
     {
@@ -596,6 +596,24 @@
       "runtimePublished": true,
       "runtimeCitiesSeparate": true,
       "sha256": "247242c05e8e4696cf80cfb20d6bbfb4bd7fcfd40fef3f097c687bb3c6f16b1d"
+    },
+    {
+      "version": "1.40",
+      "parentVersion": "1.39",
+      "file": "layers-1.40/kalistar-map-1.40-preview.png",
+      "base": "layers-1.40/kalistar-map-1.40-base.png",
+      "description": "Archipel redessine a l'est de Durane, petits ponts entre les iles et acces continental au nord",
+      "layeredDocument": "layers-1.40/kalistar-map-1.40.psd",
+      "preview": "layers-1.40/kalistar-map-1.40-preview.png",
+      "provenance": "layers-1.40/provenance.json",
+      "verification": "layers-1.40/verification.json",
+      "status": "approved",
+      "authorApprovedOn": "2026-11-22",
+      "publishedAsset": "../site/assets/ui/kalistar-atlas-1.40.webp",
+      "publishedMedia": "layers-1.40/published-media.json",
+      "runtimePublished": true,
+      "runtimeCitiesSeparate": true,
+      "sha256": "ee0a44e0e64067686802c6768c82ac23eb43b30ee670eba02ca9f4fcd5817066"
     }
   ]
 }

@@ -17,7 +17,10 @@ test('published atlas exists with no PSD or authoring data used at runtime',()=>
 
 test('latest published map and eight city assets match their recorded provenance',()=>{
   const crypto=require('node:crypto'),root=path.resolve(__dirname,'../..');
-  const proof=JSON.parse(fs.readFileSync(path.join(root,'V4/map/layers-1.39/published-media.json')));
+  const versions=JSON.parse(fs.readFileSync(path.join(root,'V4/map/versions.json'),'utf8'));
+  const current=versions.versions.find(version=>version.version===versions.latestVersion);
+  const proof=JSON.parse(fs.readFileSync(path.resolve(root,'V4/map',current.publishedMedia),'utf8'));
+  assert.equal(proof.version,current.version);
   for(const asset of proof.assets){
     const bytes=fs.readFileSync(path.join(root,asset.file));
     assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),asset.sha256);

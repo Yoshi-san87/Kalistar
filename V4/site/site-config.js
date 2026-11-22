@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const base = new URL('../', document.currentScript.src);
-  const atlas = new URL('assets/ui/kalistar-atlas-1.39.webp', document.currentScript.src).href;
+  const atlas = new URL('assets/ui/kalistar-atlas-1.40.webp', document.currentScript.src).href;
   const online = document.documentElement.dataset.hosting === 'static';
   const url = value => {
     if (typeof value !== 'string' || !/^\/(?!\/)/.test(value)
