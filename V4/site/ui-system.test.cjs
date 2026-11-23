@@ -25,15 +25,25 @@ test('progressive selects, keyboard state, Reduced Motion and high contrast stay
 test('collection owns a fixed twelve-slot album and a paged reader without scroll',()=>{
   const css=read('collection-binder.css'),js=read('collection-binder.js'),mobile=read('mobile.css'),ui=read('ui-system.css');
   assert.match(css,/\.cb-spread\s*\{[^}]*display:\s*grid/);
-  assert.match(css,/\.cb-workbench\s*\{[^}]*overflow:\s*hidden/);
-  assert.match(css,/body\.collection-view\s*\{[^}]*overflow:\s*hidden/);
+  assert.match(css,/\.cb-workbench\s*\{[^}]*container:album-stage\s*\/\s*size/);
+  assert.match(css,/\.cb-workbench\s*\{[^}]*overflow:\s*clip/);
+  assert.match(css,/body\.collection-view\s*\{[^}]*overflow:\s*clip/,'programmatic focus cannot scroll the global navigation away');
+  assert.match(css,/html:has\(body\.collection-view\)\s*\{[^}]*overflow:clip/);
+  assert.match(css,/\.cb-album\s*\{[^}]*width:min\(100cqw,calc\(100cqh \* var\(--cb-book-ratio\)\)/);
+  assert.match(css,/\.cb-album\s*\{[^}]*aspect-ratio:var\(--cb-book-ratio\)/);
+  assert.match(css,/\.cb-album\s*\{[^}]*container:album-book\s*\/\s*size/);
+  assert.match(css,/@container album-book \(max-height:400px\)/,'reader tools follow the physical book height, including intermediate widths');
+  assert.match(css,/@container album-book \(max-width:300px\)\s*\{[^]*?\.cb-page \.cb-reading-pager \{ display:grid;/,'tiny books override the shared flex pager with a vertical tactile grid');
+  assert.match(css,/@container album-stage \(max-aspect-ratio:6\/5\)/);
   assert.match(css,/\.cb-slot\s*\{[^}]*aspect-ratio:\s*797\s*\/\s*1388/);
+  assert.match(css,/\.cb-pocket>\.cb-slot-number\s*\{\s*display:none;/,'empty pockets cannot create an implicit second grid row');
   assert.match(css,/\.cb-hero-stage\s*\{[^}]*container:album-hero\s*\/\s*size/);
   assert.match(css,/\.cb-hero-image\s*\{[^}]*height:min\(100cqh,/,'hero sizing resolves against its stage, not intrinsic PNG dimensions');
   assert.match(css,/\.cb-read-window\s*\{[^}]*overflow:\s*hidden/);
   assert.match(css,/\.cb-read-content\s*\{[^}]*column-width:/);
   assert.match(js,/const pageSize=12/);
-  for(const file of ['album-open-v1.webp','album-open-phone-v1.webp','album-sleeve-v1.webp','album-leaf-v1.webp'])assert(css.includes(file),file);
+  for(const file of ['album-open-v2.webp','album-open-phone-v2.webp','album-folio-phone-v1.webp','album-reader-phone-v2.webp','album-leaf-v1.webp'])assert(css.includes(file),file);
+  assert.doesNotMatch(css,/hud-material-v1|hud-frame-v1|album-sleeve-v1/,'painted full-width bars and thick white pocket frame are retired');
   for(const marker of ['prefers-reduced-motion',':focus-visible','forced-colors','.cb-reading-tabs','.cb-profile','.cb-career','.cb-equipped'])assert(css.includes(marker),marker);
   assert.doesNotMatch(mobile,/\.cb-(?:sheet|spread|reader|reading|workbench|pocket|caption|pedestal)\b/);
   assert.doesNotMatch(ui,/\.cb-reading\b|\.cb-versions\b/);
@@ -57,6 +67,7 @@ test('every version occupies its own native-card slot; empty albums still render
     assert.deepEqual(requested,cards.map(c=>c.id),'both versions have independent visible PNGs');
     for(const c of cards)assert(html.includes('data-card-id="'+c.id+'"'));
     assert(html.includes('cb-album'));assert(html.includes('cb-slot'));
+    assert.equal((html.match(/<footer class="cb-footer"/g)||[]).length,1,'one pagination rail is attached to the physical album');
     assert.doesNotMatch(html,/cb-pedestal|cb-stack|data-binder-action="cycle-version"/);
     assert.equal((html.match(/cb-card-favorite/g)||[]).length,2);
     assert.equal((html.match(/class="cb-card-copies" role="img" aria-label="1 exemplaire"/g)||[]).length,2);
@@ -76,13 +87,18 @@ test('album turns use bounded composited leaves and retire the old pedestal laye
   for(const marker of ['.cb-page-turn','.cb-turn-sheet','backface-visibility','preserve-3d'])assert(css.includes(marker),marker);
   assert.match(js,/duration:720/);assert(js.includes("visibilitychange"));assert(js.includes('animation.cancel()'));
   assert(js.includes('observer?.disconnect()'));assert(js.includes('cancelAnimationFrame'));
+  assert(js.includes('closeMedia(false)'));
+  const tools=js.slice(js.indexOf('function openMedia()'),js.indexOf('function closeOverlay()'));
+  assert(tools.includes('node.replaceWith(marker)')&&tools.includes('content.append(node)'),'compact tools move the real controls instead of cloning downloads or versions');
+  assert(!tools.includes('cloneNode'));
   assert.doesNotMatch(css,/animation[^;{}]*\binfinite\b/);
   assert.doesNotMatch(css,/\.slot-card\s*\{|\.kdb-slot\s*\{/);
 });
 
 test('album ink and secondary labels remain legible on the paper fallback',()=>{
   const css=read('collection-binder.css'),album=css.match(/\.cb-album\s*\{([^}]+)\}/)[1];
-  const paper=album.match(/background:#([a-f0-9]{6})/)[1];
+  const paper=album.match(/--cb-paper:#([a-f0-9]{6})/)[1];
+  assert(!/background:#[a-f0-9]/.test(album),'no opaque rectangular plate behind the alpha silhouette');
   const light=hex=>hex.match(/\w\w/g).map(x=>parseInt(x,16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
   for(const token of ['text','muted']){
     const ink=album.match(new RegExp('--cb-'+token+':#([a-f0-9]{6})'))[1],values=[light(ink),light(paper)].sort((a,b)=>b-a);

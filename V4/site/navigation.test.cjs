@@ -51,8 +51,10 @@ test('navigation target height does not feed back from the measured masthead hei
   const css=read('V4/site/navigation.css').toString();
   assert(css.includes('--masthead-height:var(--navigation-header-height)'));
   assert(!/\b(?:height|min-height|flex-basis):var\(--masthead-height\)/.test(css));
-  assert(css.includes('margin:8px 0 -1px; border-bottom:0'));
-  assert(css.includes('position:relative; z-index:30; overflow:visible'));
+  assert(css.includes('grid-template-columns:184px minmax(0,1fr) auto'));
+  assert(css.includes('position:sticky; top:0; z-index:60'));
+  assert(!/margin:\s*8px 0 -1px/.test(css),'navigation never relies on a projecting negative margin');
+  assert(!css.includes('border-image:'),'repeated decorative frames are not the navigation skin');
 });
 
 test('arena help retains its safe inset without reserving the hidden phone bar',()=>{
@@ -87,5 +89,5 @@ test('short mouse windows retain desktop destinations while touch landscape reta
     assert(source.includes('(pointer:coarse)and(max-width:1100px)and(max-height:500px)'));
     assert(!source.includes('(max-width:950px)and(max-height:500px)'));
   }
-  assert(read('V4/site/navigation.css').toString().includes('(min-width:700px) and (pointer:fine)'));
+  assert(read('V4/site/navigation.css').toString().includes('(max-width:1200px) and (pointer:fine)'));
 });

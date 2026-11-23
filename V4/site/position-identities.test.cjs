@@ -71,7 +71,7 @@ test('Stats retains pointer-qualified phone skins; the album keeps twelve slots 
     assert(!source.includes('@media(min-width:700px)and(max-height:500px)'),'no short-only phone skin: '+name);
   }
   const css=fs.readFileSync(path.join(__dirname,'collection-binder.css'),'utf8'),js=fs.readFileSync(path.join(__dirname,'collection-binder.js'),'utf8');
-  assert(css.includes('@media(max-width:699px) and (min-height:501px)'));
+  assert(css.includes('@container album-stage (max-aspect-ratio:6/5)'),'the board dimensions, not a device name, choose the album geometry');
   assert.match(css,/\.cb-spread\s*\{[^}]*grid-template-columns:minmax\(0,1fr\) minmax\(0,1fr\)/,'reader and gallery retain left/right leaves');
   assert.match(css,/\.cb-gallery-leaf\s*\{[^}]*grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/,'portrait keeps six pockets in two columns per leaf');
   assert(js.includes('const pageSize=12'));

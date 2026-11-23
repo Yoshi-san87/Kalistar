@@ -53,17 +53,18 @@ async function main() {
       const rect=n=>n.getBoundingClientRect(),within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
       const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
       const r=rect(n),leaves=[...n.querySelectorAll(':scope > .cb-gallery-leaf')],cards=[...n.querySelectorAll('.cb-pocket')],work=n.closest('.cb-workbench'),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight};
-      const grids=leaves.map(leaf=>({side:leaf.dataset.leaf,count:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(leaf).gridTemplateRows.split(' ').length}));
-      return {grids,columns:grids[0]?.columns,rows:grids[0]?.rows,capacity:12,count:cards.length,filled:cards.filter(c=>c.dataset.cardId).length,empty:cards.filter(c=>c.classList.contains('is-empty')).length,
-        balanced:leaves.length===2&&Math.abs(rect(leaves[0]).width-rect(leaves[1]).width)<1&&Math.abs((rect(leaves[0]).left+rect(leaves[1]).right)/2-(r.left+r.right)/2)<2,
-        contained:within(r,rect(work))&&within(rect(work),viewport)&&leaves.every(leaf=>within(rect(leaf),r))&&cards.every(c=>{
+      const single=getComputedStyle(n.closest('.cb-album')).getPropertyValue('--cb-single-leaf').trim()==='1';
+      const grids=leaves.map(leaf=>({side:leaf.dataset.leaf,count:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(single?n:leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(single?n:leaf).gridTemplateRows.split(' ').length}));
+      return {grids,single,columns:grids[0]?.columns,rows:grids[0]?.rows,capacity:12,count:cards.length,filled:cards.filter(c=>c.dataset.cardId).length,empty:cards.filter(c=>c.classList.contains('is-empty')).length,
+        balanced:leaves.length===2&&(single||Math.abs(rect(leaves[0]).width-rect(leaves[1]).width)<1&&Math.abs((rect(leaves[0]).left+rect(leaves[1]).right)/2-(r.left+r.right)/2)<2),
+        contained:within(r,rect(work))&&within(rect(work),viewport)&&leaves.every(leaf=>single||within(rect(leaf),r))&&cards.every(c=>{
           const box=rect(c),slot=c.querySelector('.cb-slot'),face=c.querySelector('.cb-card'),caption=c.querySelector('.cb-caption');
-          return !!slot&&within(box,rect(c.parentElement))&&within(box,viewport)&&within(rect(slot),box)&&rect(slot).height>0&&(!face||caption&&within(rect(face),rect(slot))&&within(rect(caption),box)&&separate(rect(face),rect(caption))&&rect(face).height>0&&Math.abs(rect(face).width/rect(face).height-797/1388)<.01);
+          return !!slot&&within(box,rect(single?n:c.parentElement))&&within(box,viewport)&&within(rect(slot),box)&&rect(slot).height>0&&(!face||caption&&within(rect(face),rect(slot))&&caption.querySelector('h2').textContent===KALISTAR_DATA.cards.find(model=>model.id===c.dataset.cardId).name&&rect(face).height>0&&Math.abs(rect(face).width/rect(face).height-797/1388)<.01);
         }),overflow:document.documentElement.scrollWidth-innerWidth,
         scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n.closest('.cb-album')].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
     });
     assert.deepEqual(layout.grids.map(leaf=>leaf.side),['left','right']);
-    assert(layout.grids.every(leaf=>leaf.count===6&&leaf.columns*leaf.rows===6),JSON.stringify(layout));
+    assert(layout.grids.every(leaf=>leaf.count===6&&leaf.columns*leaf.rows===(layout.single?12:6)),JSON.stringify(layout));
     assert.equal(layout.capacity,12);assert.equal(layout.count,12);assert.equal(layout.filled+layout.empty,12);
     assert(layout.contained&&layout.balanced&&layout.overflow<=1,JSON.stringify(layout));
     assert(layout.scroll.every(c=>c.overflow<=1&&c.top===0),'fixed gallery/document: '+JSON.stringify(layout.scroll));
@@ -82,7 +83,7 @@ async function main() {
         nativeScroll:getComputedStyle(work).overflowY};
     });
     assert.deepEqual(layout.sides,['left','right']);assert(layout.leftRight&&layout.contained&&layout.clipped,JSON.stringify(layout));
-    assert.equal(layout.nativeScroll,'hidden');assert(layout.scroll.every(n=>n.overflow<=1&&n.top===0&&n.left===0),JSON.stringify(layout.scroll));
+    assert.equal(layout.nativeScroll,'clip');assert(layout.scroll.every(n=>n.overflow<=1&&n.top===0&&n.left===0),JSON.stringify(layout.scroll));
     assert.match(layout.page,/^[1-9]\d* \/ [1-9]\d*$/);
     const [current,total]=layout.page.split('/').map(Number);assert(current<=total);
     assert.equal(await page.locator('[data-binder-action=read-previous]').isDisabled(),current===1);
@@ -111,7 +112,7 @@ async function main() {
   assert.equal((await collectionLabel.textContent()).trim(),'01 / '+collectionPages);
   assert.equal(await page.locator('.cb-sheet,.cb-page-edge,.cb-turn-leaf').count(),0);
   assert.equal(await page.locator('.cb-spread').evaluate(n=>getComputedStyle(n).display),'grid');
-  assert((await page.locator('.cb-slot').first().evaluate(n=>getComputedStyle(n,'::after').backgroundImage)).includes('album-sleeve-v1.webp'));
+  assert(await page.locator('.cb-slot').first().evaluate(n=>getComputedStyle(n,'::after').backgroundImage.includes('linear-gradient')&&!getComputedStyle(n,'::after').backgroundImage.includes('url(')),'sleeve sheen has no white bitmap frame');
   await page.locator('[data-binder-action=next-page]').click();
   assert.equal((await collectionLabel.textContent()).trim(),'02 / '+collectionPages);
   assert.equal(await page.locator('.cb-pocket').first().evaluate(n=>getComputedStyle(n).animationName),'none');
@@ -216,7 +217,7 @@ async function main() {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.evaluate(()=>location.hash='collection');
   await page.locator('.cb-spread').waitFor();
-  const mobile=await fixedGallery();assert.equal(mobile.columns,2);assert.equal(mobile.rows,3);assert.equal(mobile.capacity,wide.capacity,'portrait keeps twelve slots across two leaves');
+  const mobile=await fixedGallery();assert.equal(mobile.columns,3);assert.equal(mobile.rows,4);assert.equal(mobile.capacity,wide.capacity,'portrait keeps twelve slots in one fitted folio');
   await page.screenshot({ path: path.join(output, 'mobile-collection.png') });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), 'mobile collection has no page overflow');
   await page.locator('.cb-card').first().click();

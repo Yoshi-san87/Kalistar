@@ -40,8 +40,8 @@ async function checks(page,label,phone){
   if(!phone&&sample.nav.y<sample.actions.bottom)assert(sample.nav.right<=sample.actions.x+.5,label+' header controls do not overlap navigation');
   if(!phone){
     assert(sample.brand.y>=sample.header.y-.5&&sample.actions.y>=sample.header.y-.5,label+' logo and controls remain inside the header');
-    assert(Math.abs(sample.nav.bottom-sample.header.bottom)<.5,label+' navigation touches the masthead border');
-    assert(sample.buttons.every(b=>Math.abs(b.bottom-sample.header.bottom)<.5),label+' every tab ends on the same border');
+    assert(sample.nav.y>=sample.header.y-.5&&sample.nav.bottom<=sample.header.bottom+.5,label+' navigation stays inside its reserved header track');
+    assert(sample.buttons.every(b=>b.y>=sample.header.y-.5&&b.bottom<=sample.header.bottom+.5),label+' every command stays in the header');
     assert(Number(sample.layers.header)>=30&&Number(sample.layers.nav)>0&&Number(sample.layers.gem)>0,label+' menu and Kalistel have explicit foreground layers');
     assert.equal(sample.layers.headerOverflow,'visible',label+' projecting Kalistel is not clipped');
     assert.notEqual(sample.layers.headerPosition,'static');
@@ -68,7 +68,7 @@ async function main(){
     });
     await context.addInitScript(()=>{const open=IDBFactory.prototype.open;IDBFactory.prototype.open=function(name,version){return open.call(this,String(name)+'-navigation-qa-only',version);};});
     const page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));
-    await page.goto(base+'/jeu/#weapons');await page.waitForFunction(()=>window.KALISTAR_READY);
+    await page.goto(base+'/jeu/#weapons');await page.locator('[data-startup-enter]:enabled').click();await page.waitForFunction(()=>window.KALISTAR_READY);
     await checks(page,name+' weapons',phone);await capture(page,name+'-weapons');
     await page.locator('.main-nav [data-view=decks]').click();await page.waitForFunction(()=>document.body.classList.contains('decks-view'));
     await checks(page,name+' decks',phone);await capture(page,name+'-decks');

@@ -101,16 +101,15 @@ async function main(){
       assert(toolbar.inside&&!toolbar.overlap,'toolbar controls fit '+width+'x'+height);
       const album=await page.locator('.cb-album').evaluate(n=>{
         const rect=n=>n.getBoundingClientRect(),within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
-        const work=n.closest('.cb-workbench'),spread=n.querySelector('.cb-spread'),leaves=[...spread.querySelectorAll(':scope > .cb-gallery-leaf')];
-        return {slots:n.querySelectorAll('.cb-pocket').length,filled:n.querySelectorAll('.cb-pocket[data-card-id]').length,empty:n.querySelectorAll('.cb-pocket.is-empty').length,
-          leaves:leaves.map(leaf=>({side:leaf.dataset.leaf,count:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(leaf).gridTemplateRows.split(' ').length})),
-          inside:within(rect(n),rect(work))&&leaves.every(leaf=>within(rect(leaf),rect(spread))&&[...leaf.querySelectorAll('.cb-pocket')].every(p=>within(rect(p),rect(leaf)))),
+        const work=n.closest('.cb-workbench'),spread=n.querySelector('.cb-spread'),leaves=[...spread.querySelectorAll(':scope > .cb-gallery-leaf')],single=getComputedStyle(n).getPropertyValue('--cb-single-leaf').trim()==='1';
+        return {single,slots:n.querySelectorAll('.cb-pocket').length,filled:n.querySelectorAll('.cb-pocket[data-card-id]').length,empty:n.querySelectorAll('.cb-pocket.is-empty').length,
+          leaves:leaves.map(leaf=>({side:leaf.dataset.leaf,count:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(single?spread:leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(single?spread:leaf).gridTemplateRows.split(' ').length})),
+          inside:within(rect(n),rect(work))&&leaves.every(leaf=>(single||within(rect(leaf),rect(spread)))&&[...leaf.querySelectorAll('.cb-pocket')].every(p=>within(rect(p),rect(single?spread:leaf)))),
           scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n].map(n=>({node:n.className||n.id||n.tagName,overflow:n.scrollHeight-n.clientHeight,top:n.scrollTop}))};
       });
       assert.equal(album.slots,12);assert.equal(album.filled,ownedIds.length);assert.equal(album.empty,12-ownedIds.length);
       assert.deepEqual(album.leaves.map(n=>n.side),['left','right']);
-      const portrait=width<700&&height>500;
-      assert(album.inside&&album.leaves.every(n=>n.count===6&&n.columns===(portrait?2:3)&&n.rows===(portrait?3:2)),JSON.stringify(album));
+      assert(album.inside&&album.leaves.every(n=>n.count===6&&n.columns*n.rows===(album.single?12:6)),JSON.stringify(album));
       assert(album.scroll.every(n=>n.overflow<=1&&n.top===0),JSON.stringify(album.scroll));
       report.album=album;
       if(!await collection.isVisible()){

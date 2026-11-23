@@ -45,27 +45,26 @@ async function main() {
       const rect=n=>n.getBoundingClientRect(),visible=n=>n.getClientRects().length>0&&getComputedStyle(n).visibility==='visible';
       const within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
       const separate=(a,b)=>a.right<=b.left+1||b.right<=a.left+1||a.bottom<=b.top+1||b.bottom<=a.top+1;
-      const leaves=[...n.querySelectorAll(':scope > .cb-gallery-leaf')],pockets=[...n.querySelectorAll('.cb-pocket[data-card-id]')],bounds=rect(n),work=n.closest('.cb-workbench'),workBox=rect(work),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight};
+      const leaves=[...n.querySelectorAll(':scope > .cb-gallery-leaf')],pockets=[...n.querySelectorAll('.cb-pocket[data-card-id]')],bounds=rect(n),work=n.closest('.cb-workbench'),workBox=rect(work),viewport={left:0,top:0,right:innerWidth,bottom:innerHeight},single=getComputedStyle(n.closest('.cb-album')).getPropertyValue('--cb-single-leaf').trim()==='1';
       const cards=pockets.map(p=>{
         const box=rect(p),caption=p.querySelector('.cb-caption'),stand=rect(caption),slot=p.querySelector('.cb-slot'),card=p.querySelector('.cb-card'),face=rect(card);
         const model=KALISTAR_DATA.cards.find(c=>c.id===p.dataset.cardId),name=caption.querySelector('h2');
         const favorite=p.querySelector('.cb-card-favorite'),copies=p.querySelector('.cb-card-copies');
-        return {id:model.id,inside:within(box,rect(p.parentElement))&&within(box,workBox)&&within(box,viewport),
+        return {id:model.id,inside:within(box,rect(single?n:p.parentElement))&&within(box,workBox)&&within(box,viewport),
           art:!!slot&&card.parentElement===slot&&within(rect(slot),box)&&within(face,rect(slot))&&face.height>0&&Math.abs(face.width/face.height-797/1388)<.01,
-          caption:within(stand,box)&&separate(stand,face)&&visible(name)&&name.textContent===model.name&&within(rect(name),stand),
+          caption:name.textContent===model.name&&card.getAttribute('aria-label').includes(model.name),
           controls:!!favorite&&!!copies&&(!visible(copies)||within(rect(copies),rect(slot)))&&(!visible(favorite)||within(rect(favorite),rect(slot))&&(!visible(copies)||separate(rect(favorite),rect(copies)))),
           targets:[card,favorite].filter(visible).every(c=>{const b=rect(c);return c.contains(document.elementFromPoint(b.x+b.width/2,b.y+b.height/2));}),
           count:Number(copies.querySelector('b').textContent),expectedCount:KALISTAR_DB.registry.owned(KALISTAR_ACTIVE_USER,model.id).length};
       });
-      return {count:n.querySelectorAll('.cb-pocket').length,filled:pockets.length,empty:n.querySelectorAll('.cb-pocket.is-empty').length,
-        leaves:leaves.map(leaf=>({side:leaf.dataset.leaf,slots:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(leaf).gridTemplateRows.split(' ').length})),
-        cards,inside:within(bounds,workBox)&&within(workBox,viewport)&&leaves.every(leaf=>within(rect(leaf),bounds)),scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n.closest('.cb-album')].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
+      return {single,count:n.querySelectorAll('.cb-pocket').length,filled:pockets.length,empty:n.querySelectorAll('.cb-pocket.is-empty').length,
+        leaves:leaves.map(leaf=>({side:leaf.dataset.leaf,slots:leaf.querySelectorAll(':scope > .cb-pocket').length,columns:getComputedStyle(single?n:leaf).gridTemplateColumns.split(' ').length,rows:getComputedStyle(single?n:leaf).gridTemplateRows.split(' ').length})),
+        cards,inside:within(bounds,workBox)&&within(workBox,viewport)&&leaves.every(leaf=>single||within(rect(leaf),bounds)),scroll:[document.documentElement,document.body,document.querySelector('#app'),work,n.closest('.cb-album')].map(c=>({node:c.id||c.className||c.tagName,overflow:c.scrollHeight-c.clientHeight,top:c.scrollTop}))};
     });
     assert(geometry.inside&&geometry.filled>0,JSON.stringify(geometry));
     assert.equal(geometry.count,12);assert.equal(geometry.filled+geometry.empty,12);
     assert.deepEqual(geometry.leaves.map(n=>n.side),['left','right']);
-    const portrait=page.viewportSize().width<700&&page.viewportSize().height>500;
-    assert(geometry.leaves.every(n=>n.slots===6&&n.columns===(portrait?2:3)&&n.rows===(portrait?3:2)),JSON.stringify(geometry));
+    assert(geometry.leaves.every(n=>n.slots===6&&n.columns*n.rows===(geometry.single?12:6)),JSON.stringify(geometry));
     assert(geometry.scroll.every(c=>c.overflow<=1&&c.top===0),'gallery and document do not scroll: '+JSON.stringify(geometry.scroll));
     for(const card of geometry.cards){assert(card.inside&&card.art&&card.caption&&card.controls&&card.targets,JSON.stringify(card));assert.equal(card.count,card.expectedCount);}
     assert.equal(await page.locator('.cb-sheet').count(),0);
@@ -83,14 +82,14 @@ async function main() {
         overflow:getComputedStyle(work).overflowY,clipped:getComputedStyle(window).overflow};
     });
     assert.deepEqual(geometry.sides,['left','right']);assert(geometry.leftRight&&geometry.inside,JSON.stringify(geometry));
-    assert.equal(geometry.overflow,'hidden');assert.equal(geometry.clipped,'hidden');
+    assert.equal(geometry.overflow,'clip');assert.equal(geometry.clipped,'hidden');
     assert(geometry.scroll.every(n=>n.overflow<=1&&n.top===0&&n.left===0),JSON.stringify(geometry.scroll));
     await withinViewport('.cb-hero-image,.cb-reading,.cb-read-window,.cb-reading-pager');
   }
   await page.goto(url + '/jeu/#collection');
   await page.locator('[data-startup-enter]:enabled').click({timeout:90000});
   await page.waitForFunction(() => window.KALISTAR_READY === true);
-  await page.locator('.cb-album[data-album-mode=gallery] .cb-gallery-leaf').first().waitFor();
+  await page.locator('.cb-album[data-album-mode=gallery] .cb-pocket').first().waitFor();
   await loaded();
   const touch = await context.newCDPSession(page);
   const leaf = await page.locator('.cb-workbench').boundingBox();

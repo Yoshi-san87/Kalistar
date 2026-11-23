@@ -205,17 +205,30 @@ canvas local a DPR plafonne 1.25 et duree inferieure a une seconde.
 Reraise/esquive/reload ne rejouent aucune mort. Reduced Motion utilise un
 fondu bref ; abort, changement de vue, resize et arriere-plan nettoient l'effet.
 
-La Collection est un album de douze emplacements fixes par double page,
-six pochettes de chaque cote, meme lorsque le filtre retourne moins de cartes.
+La Collection est un album de douze emplacements fixes par page d'album,
+meme lorsque le filtre retourne moins de cartes. Une double page PC place
+six pochettes de chaque cote.
 Chaque version a son propre emplacement. La pagination remplace le defilement ;
-le nombre d'emplacements ne depend pas du viewport. Les pages gardent trois
-colonnes sur PC et deux en portrait smartphone, sans rogner les PNG natifs.
+le nombre d'emplacements ne depend pas du viewport. Le rectangle disponible
+du workbench choisit la silhouette adaptee par container query, sans l'etirer.
+Sur PC, chaque feuille contient six pochettes, trois colonnes et deux rangees
+en paysage ou deux colonnes et trois rangees en portrait. Sur une zone etroite
+et verticale, un folio unique de trois colonnes et quatre rangees agrandit les
+douze cartes sans rogner les PNG natifs ni creer des bandes vides enormes.
 `collection-binder.js/css` possede seul cette disposition et le lecteur.
 La couche historique `collection-pedestal.css` reste preservee mais n'est plus
 chargee par index.html. Aucun override Collection dans mobile.css ou les CSS
-statistiques/equipements. Les composants prepares sous `assets/album/` sont
-des textures sans texte : album paysage/portrait, pochettes, feuille mobile,
-cadre HUD et matiere. Les cartes, icones et controles restent des elements DOM.
+statistiques/equipements. Les nouveaux albums alpha v2 sous `assets/album/`
+reprennent les matieres de la proposition ; aucun fond rectangulaire opaque.
+La pochette utilise un contour CSS fin, sans le cadre blanc v1. Les noms connus
+sont imprimes dans le PNG et restent aussi accessibles en DOM ; les inconnus
+gardent leur nom visible sur le dos. Le HUD n'etire plus de cadre bitmap autour
+de chaque commande. Les cartes, icones et controles restent des elements DOM.
+
+La pagination est attachee au livre. Sa reserve tactile fixe et une marge de
+8 px sont soustraites de la zone des cartes ; le bord du livre ne peut pas la
+repousser hors champ. HTML, body Collection et le workbench sont en clip, pas
+en conteneurs defilables caches que le focus pourrait decaler.
 
 Le clic ouvre une double page : carte a gauche, recit a droite, y compris sur
 telephone. La fenetre de texte fragmente son contenu en colonnes mesurees,
@@ -223,6 +236,16 @@ accessibles par boutons et clavier ; aucun texte n'est supprime pour tenir.
 Fiche, carriere et exemplaires utilisent ce meme lecteur pagine. Les versions
 sont disponibles dans le selecteur du lecteur, jamais fondues en un seul slot.
 Les filtres et le sommaire gardent leurs dialogues natifs et le Retour mobile.
+Le re-rendu d'un filtre conserve son scroll et le radio selectionne. En
+lecteur bas, un bouton de 44 px ouvre les outils de carte dans un dialogue
+natif ; les vrais controles sont deplaces puis restitues, sans duplication
+du PNG ou du selecteur. Echap et Retour ferment les outils avant de quitter.
+Le lecteur bas masque temporairement l'en-tete et le menu bas, comme une vue
+de lecture immersive ; son bouton Retour les restitue. Le lecteur conserve
+ses pages gauche/droite, meme si la galerie precedente utilisait un folio.
+Les controles compacts suivent la taille du livre (`album-book`), y compris
+quand sa largeur limite sa hauteur. Les tres petits livres empilent les deux
+fleches du texte en conservant leurs cibles de 44 px.
 
 Dans le Catalogue, une version est revelee apres sa premiere acquisition et
 reste connue apres transfert. La projection dans cloud-registry.js utilise les
@@ -234,10 +257,13 @@ Ce masquage visuel n'est pas un DRM des definitions necessaires aux combats IA.
 Le changement de page anime une seule feuille en 3D, pendant 720 ms, avec
 recto/verso et ancienne page sous-jacente. Resize, filtre, changement de vue,
 arriere-plan et Reduced Motion interrompent et liberent cette couche. Pas de
-boucle au repos. Les images sont chargees seulement pour les emplacements
+boucle au repos. Le changement de geometrie galerie/lecteur utilise un fondu
+de 180 ms plutot qu'une feuille aux dimensions de l'ancienne vue.
+Les images sont chargees seulement pour les emplacements
 visibles, le lecteur ouvert et le sommaire explicitement demande. Le PNG natif
-reste telechargeable sans modification. Sources, prompts et exports des six
-textures : ../revisions/2026-11-22-album-vivant/.
+reste telechargeable sans modification. Contrats de dimensions, sources et
+prompts courants : ../revisions/2026-11-22-album-layout-lock/. Les composants
+de premiere generation restent preserves dans leur lot d'origine.
 La preparation avant-match utilise une seule zone de defilement dans
 `pre-match.css` : capitaines face a face et reglages lateraux sur PC, puis
 blocs successifs sur telephone. Entete et lancement restent fixes, meme en

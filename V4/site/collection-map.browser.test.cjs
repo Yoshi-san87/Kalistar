@@ -23,9 +23,9 @@ async function routeBuilt(context){
 async function layout(p){
   const r=await p.locator('.cb-album > .cb-spread').evaluate(spread=>{
     const rect=n=>n.getBoundingClientRect(),within=(a,b)=>a.left>=b.left-1&&a.right<=b.right+1&&a.top>=b.top-1&&a.bottom<=b.bottom+1;
-    const leaves=[...spread.querySelectorAll(':scope > .cb-leaf')],pockets=[...spread.querySelectorAll('.cb-pocket')],view={left:0,top:0,right:innerWidth,bottom:innerHeight};
+    const leaves=[...spread.querySelectorAll(':scope > .cb-leaf')],pockets=[...spread.querySelectorAll('.cb-pocket')],view={left:0,top:0,right:innerWidth,bottom:innerHeight},single=getComputedStyle(spread.closest('.cb-album')).getPropertyValue('--cb-single-leaf').trim()==='1';
     return {sides:leaves.map(n=>n.dataset.leaf),slots:leaves.map(n=>n.querySelectorAll('.cb-pocket').length),empty:pockets.filter(n=>n.classList.contains('is-empty')).length,
-      ids:pockets.filter(n=>n.dataset.cardId).map(n=>n.dataset.cardId),fits:within(rect(spread),view)&&leaves.every(n=>within(rect(n),rect(spread)))&&pockets.every(n=>within(rect(n),rect(n.closest('.cb-leaf')))),
+      ids:pockets.filter(n=>n.dataset.cardId).map(n=>n.dataset.cardId),fits:within(rect(spread),view)&&leaves.every(n=>single||within(rect(n),rect(spread)))&&pockets.every(n=>within(rect(n),rect(single?spread:n.closest('.cb-leaf')))),
       native:pockets.filter(n=>n.dataset.cardId).every(n=>n.querySelector('.cb-card > img') instanceof HTMLImageElement&&!n.querySelector('canvas')),
       scroll:[document.documentElement,document.body,document.querySelector('#app'),spread.closest('.cb-workbench')].map(n=>({node:n.id||n.className||n.tagName,x:n.scrollWidth-n.clientWidth,y:n.scrollHeight-n.clientHeight,top:n.scrollTop,left:n.scrollLeft}))};
   });
